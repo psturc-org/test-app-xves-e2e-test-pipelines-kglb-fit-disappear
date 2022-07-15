@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: test-component--ggnz
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: test-component--ggnz
+    app.kubernetes.io/part-of: test-app-xves
+  name: test-component--ggnz
+  namespace: e2e-test-pipelines-kglb
+spec:
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: test-component--ggnz
+    weight: 100
+status: {}
